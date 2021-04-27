@@ -1,0 +1,17 @@
+.scale-enter {
+  transform: scale(0);
+}
+
+.scale-enter-active,
+.scale-exit {
+  transform: scale(1);
+}
+
+.scale-exit-active {
+  transform: scale(0);
+}
+
+.scale-enter-active,
+.scale-exit-active {
+  transition: transform .3s ease;
+}

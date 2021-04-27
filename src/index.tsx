@@ -1,14 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
+
 import './index.css';
-import App from './App';
+import App from './components/app/App';
+import store from './store';
 import reportWebVitals from './reportWebVitals';
+import LazyLoad from "vanilla-lazyload";
+
+declare global {
+    interface Window {
+        lazyLoad: any;
+    }
+}
+
+window.lazyLoad = new LazyLoad();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <Router>
+                <App />
+            </Router>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
