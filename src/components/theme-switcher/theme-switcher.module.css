@@ -1,0 +1,44 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--base200);
+}
+
+.btnText {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .btn {
+    width: auto;
+    margin-right: 105px;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--base200);
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btnText {
+    display: inline;
+    margin-left: 16px;
+  }
+}
