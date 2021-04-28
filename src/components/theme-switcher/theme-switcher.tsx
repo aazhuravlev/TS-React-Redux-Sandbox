@@ -23,7 +23,7 @@ const ThemeSwitcher: FC = () => {
             <CSSTransition
                 key={theme}
                 addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-                classNames='scale'
+                classNames='appear'
             >
                 <button
                     className={styles.btn}

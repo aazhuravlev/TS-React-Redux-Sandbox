@@ -1,17 +1,20 @@
-.scale-enter {
-  transform: scale(0);
+.appear-enter {
+  opacity: 0;
+  transform: translateY(100%);
 }
 
-.scale-enter-active,
-.scale-exit {
-  transform: scale(1);
+.appear-enter-active,
+.appear-exit {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.scale-exit-active {
-  transform: scale(0);
+.appear-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
 }
 
-.scale-enter-active,
-.scale-exit-active {
-  transition: transform .3s ease;
+.appear-enter-active,
+.appear-exit-active {
+  transition: transform .3s ease, opacity .3s ease;
 }
