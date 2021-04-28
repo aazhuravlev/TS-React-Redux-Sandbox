@@ -6,6 +6,7 @@ import NotificationIcon from "../icons/notification-icon";
 import ChatIcon from "../icons/chat-icon";
 import ThemeSwitcher from "../theme-switcher/theme-switcher";
 import avatar from '../../static/images/avatar.jpg';
+import LazyImage from "../lazy-image/lazy-image";
 
 const Header: FC = () => {
     useEffect(() => {
@@ -52,13 +53,9 @@ const Header: FC = () => {
                     Bessie Cooper
                 </span>
 
-                <img
-                    className={`${styles.image} lazy lazy-image`}
-                    data-src={avatar}
-                    width="32"
-                    height="32"
-                    alt="Аватар пользователя"
-                />
+                <LazyImage className={styles.image}
+                           src={avatar}
+                           alt="Аватар пользователя" />
             </Link>
         </header>
     )
