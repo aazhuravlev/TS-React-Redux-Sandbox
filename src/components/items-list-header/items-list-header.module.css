@@ -20,30 +20,6 @@
   transition: color .3s ease;
 }
 
-.select {
-  position: relative;
-  padding-right: 20px;
-  border: none;
-  background-color: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: inherit;
-  color: var(--main400)
-}
-
-.select:before {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 42%;
-  width: 5px;
-  height: 5px;
-  border-bottom: 3px solid var(--main400);
-  border-left: 3px solid var(--main400);
-  transform: translateY(-50%) rotate(-45deg);
-}
-
 .link {
   display: flex;
   align-items: center;

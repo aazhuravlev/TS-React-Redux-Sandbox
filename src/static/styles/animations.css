@@ -1,6 +1,6 @@
 .appear-enter {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(10px);
 }
 
 .appear-enter-active,
@@ -11,7 +11,7 @@
 
 .appear-exit-active {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(10px);
 }
 
 .appear-enter-active,
