@@ -18,4 +18,8 @@
     margin: 0 auto;
     border-radius: 48px;
   }
+
+  .header {
+    margin-bottom: 40px;
+  }
 }
