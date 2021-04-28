@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {Link} from 'react-router-dom';
 import styles from "./items-list-header.module.css"
 import {IClassName} from "../../types/common";
@@ -28,15 +28,17 @@ const specs = [
 ];
 
 const ItemsListHeader: FC<IClassName> = ({className}) => {
+    const [currentSortingName, setCurrentSortingName] = useState<string>(specs[0].label);
+
     const clickHandler = (item) => {
-        console.log(item);
+        setCurrentSortingName(item.label);
     }
 
     return (
         <section className={`${styles.ItemsListHeader} ${className}`}>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>Rent</h1>
-                <Select label="whatever" specs={specs} onClick={clickHandler} />
+                <Select label={currentSortingName} specs={specs} onClick={clickHandler} />
             </div>
 
             <Link to="/add" className={styles.link}>
