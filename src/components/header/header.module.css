@@ -1,8 +1,7 @@
 .Header {
   display: flex;
   align-items: center;
-  padding-top: 12px;
-  padding-bottom: 20px;
+  padding: 12px 16px 20px;
 }
 
 .link {

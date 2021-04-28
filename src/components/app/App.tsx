@@ -2,10 +2,10 @@ import React, {FC} from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import Header from '../header/header';
-import ItemsList from '../pages/items-list';
-import ChatPage from '../pages/chat';
-import NotificationsPage from "../pages/notifications";
-import UserPage from "../pages/user";
+import ItemsList from '../pages/items-list/items-list';
+import ChatPage from '../pages/chat/chat';
+import NotificationsPage from "../pages/notifications/notifications";
+import UserPage from "../pages/user/user";
 
 const App: FC = () => {
     return (

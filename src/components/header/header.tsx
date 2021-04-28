@@ -13,7 +13,7 @@ const Header: FC = () => {
     }, [])
 
     return (
-        <header className={`${styles.Header} container`}>
+        <header className={styles.Header}>
             <Link
                 className={styles.link}
                 to="/"

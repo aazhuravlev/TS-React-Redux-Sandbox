@@ -16,11 +16,13 @@
 html[data-theme='light'] {
   --base-font-color: var(--base500);
   --background-color: var(--base0);
+  --background-color-secondary: var(--base50);
 }
 
 html[data-theme='dark'] {
   --base-font-color: var(--base0);
   --background-color: var(--base500);
+  --background-color-secondary: var(--base600);
 }
 
 html {
@@ -29,11 +31,14 @@ html {
 }
 
 body {
-  height: 100vh;
   margin: 0;
   font-family: 'CodecPro', sans-serif;
 }
 
-.container {
-  padding: 0 16px;
+main {
+  min-height: 100vh;
+  height: 1px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  overflow: auto;
 }
