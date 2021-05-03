@@ -13,7 +13,8 @@ class VehicleController {
 
   async getAll(req, res) {
     try {
-      const vehicles = await VehicleService.getAll();
+      const {page, limit} = req.query;
+      const vehicles = await VehicleService.getAll(Number(page), Number(limit));
 
       res.json(vehicles);
     } catch (err) {

@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static('static'));
 app.use(fileUpload());
 app.use('/api', router);
-app.use('/api', createProxyMiddleware({ target: 'http://localhost:3000', changeOrigin: true }));
+app.use('/api', createProxyMiddleware({ target: 'http://localhost', changeOrigin: true }));
 
 async function startApp() {
   try {
