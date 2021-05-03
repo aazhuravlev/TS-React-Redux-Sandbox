@@ -7,8 +7,8 @@ class VehicleService {
     return Vehicle.create({ ...newVehicle, image: fileName });
   }
 
-  async getAll(page = 1, limit = 21) {
-    return Vehicle.find().skip((page - 1) * limit).limit(limit);
+  async getAll(param, page = 1, limit = 21) {
+    return Vehicle.find(param ? {type: param} : {}).skip((page - 1) * limit).limit(limit);
   }
 
   async getOne(id) {
