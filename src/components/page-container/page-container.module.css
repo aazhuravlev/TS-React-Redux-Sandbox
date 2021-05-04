@@ -1,0 +1,20 @@
+.PageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100% - 64px); /* - header */
+    padding: 24px 16px;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: var(--background-color-secondary);
+    transition: background-color .3s ease;
+}
+
+@media screen and (min-width: 1440px) {
+    .PageContainer {
+        width: 1312px;
+        min-height: calc(100% - 144px); /* - header */
+        padding: 56px 64px;
+        margin: 0 auto;
+        border-radius: 48px;
+    }
+}
