@@ -1,5 +1,9 @@
 import * as themeActions from "./theme";
+import * as vehiclesActions from "./vehicles";
 
-export default {
-    ...themeActions
+const actions = {
+    ...themeActions,
+    ...vehiclesActions
 }
+
+export default actions;

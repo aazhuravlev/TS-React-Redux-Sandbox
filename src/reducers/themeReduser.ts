@@ -3,7 +3,7 @@ import {ThemeActionType} from "../types/theme";
 
 const DEFAULT_THEME: string = 'light';
 
-const updateTheme = (state = DEFAULT_THEME, action: ThemeActionType): string => {
+const themeReducer = (state = DEFAULT_THEME, action: ThemeActionType): string => {
   switch (action.type) {
     case CHANGE_THEME:
       return action.payload;
@@ -13,4 +13,4 @@ const updateTheme = (state = DEFAULT_THEME, action: ThemeActionType): string => 
   }
 };
 
-export default updateTheme;
+export default themeReducer;

@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import styles from "./lazy-image.module.css";
 import {IClassName} from "../../types/common";
 
@@ -16,19 +16,25 @@ const LazyImage: FC<ILazyImageProps> =
          src,
          altPreview = '',
          alt = ''
-    }) => (
-        <div className={`${styles.LazyImage} ${className}`}>
-            {preview && <img className={`${styles.preview} lazy`}
-                             data-src={preview}
+    }) => {
+        useEffect(() => {
+            window.lazyLoad.update();
+        }, []);
+
+        return (
+            <div className={`${styles.LazyImage} ${className}`}>
+                {preview && <img className={`${styles.preview} lazy`}
+                                 data-src={preview}
+                                 width="100%"
+                                 height="100%"
+                                 alt={altPreview} />}
+                {src && <img className="lazy lazy-image"
+                             data-src={src}
                              width="100%"
                              height="100%"
-                             alt={altPreview} />}
-            {src && <img className="lazy lazy-image"
-                         data-src={src}
-                         width="100%"
-                         height="100%"
-                         alt={alt} />}
-        </div>
-    )
+                             alt={alt} />}
+            </div>
+        )
+    }
 
 export default LazyImage;

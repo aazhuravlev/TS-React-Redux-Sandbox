@@ -1,8 +1,10 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import {Link} from 'react-router-dom';
 import styles from "./items-list-header.module.css"
 import {IClassName} from "../../types/common";
 import Select from "../select/select";
+import {useActions} from "../../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const specs = [
     {
@@ -28,17 +30,18 @@ const specs = [
 ];
 
 const ItemsListHeader: FC<IClassName> = ({className}) => {
-    const [currentSortingName, setCurrentSortingName] = useState<string>(specs[0].label);
+    const {type} = useTypedSelector(state => state.vehicles);
+    const {setVehiclesFilter} = useActions();
 
     const clickHandler = (item) => {
-        setCurrentSortingName(item.label);
+        setVehiclesFilter(item);
     }
 
     return (
         <section className={`${styles.ItemsListHeader} ${className}`}>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>Rent</h1>
-                <Select label={currentSortingName} specs={specs} onClick={clickHandler} />
+                <Select label={type.label} specs={specs} onClick={clickHandler} />
             </div>
 
             <Link to="/add" className={styles.link}>
