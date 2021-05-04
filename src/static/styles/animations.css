@@ -1,20 +1,38 @@
 .appear-enter {
-  opacity: 0;
-  transform: translateY(10px);
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .appear-enter-active,
 .appear-exit {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .appear-exit-active {
-  opacity: 0;
-  transform: translateY(10px);
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .appear-enter-active,
 .appear-exit-active {
-  transition: transform .3s ease, opacity .3s ease;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity .3s ease;
 }

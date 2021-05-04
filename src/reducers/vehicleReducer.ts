@@ -2,6 +2,7 @@ import {
     FETCH_VEHICLES,
     FETCH_VEHICLES_FAILURE,
     FETCH_VEHICLES_SUCCESS,
+    RESET_VEHICLES_STATE,
     SET_VEHICLES_FILTER,
     SET_VEHICLES_PAGE
 } from "../constants";
@@ -14,7 +15,7 @@ const initialState: IVehiclesState = {
     page: 1,
     type: {
         label: 'whatever',
-        value: 'string'
+        value: ''
     },
 }
 
@@ -52,6 +53,11 @@ const vehiclesReducer = (state = initialState, action: VehiclesActionType): IVeh
             return {
                 ...state,
                 type: action.payload
+            };
+
+        case RESET_VEHICLES_STATE:
+            return {
+                ...initialState
             };
 
         default:

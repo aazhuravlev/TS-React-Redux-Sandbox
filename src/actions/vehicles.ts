@@ -3,10 +3,11 @@ import {
     FETCH_VEHICLES,
     FETCH_VEHICLES_FAILURE,
     FETCH_VEHICLES_SUCCESS,
+    RESET_VEHICLES_STATE,
     SET_VEHICLES_FILTER,
     SET_VEHICLES_PAGE
 } from "../constants";
-import {IVehicleFilterType, IVehicles, VehiclesActionType} from "../types/vehicles";
+import {IVehicleFilterType, IVehicle, VehiclesActionType} from "../types/vehicles";
 import {Dispatch} from "redux";
 
 const vehiclesRequested = () => {
@@ -15,7 +16,7 @@ const vehiclesRequested = () => {
     };
 };
 
-const vehiclesLoaded = (newVehicles: IVehicles[]) => {
+const vehiclesLoaded = (newVehicles: IVehicle[]) => {
     return {
         type: FETCH_VEHICLES_SUCCESS,
         payload: newVehicles
@@ -31,7 +32,7 @@ const vehiclesError = (error: string) => {
 
 const fetchVehicles = (type: string = '', page: number = 1, limit: number = 21) => (dispatch: Dispatch<VehiclesActionType>) => {
     dispatch(vehiclesRequested());
-    axios.get<IVehicles[]>('/api/vehicles/', {params: {type, page, limit}})
+    axios.get<IVehicle[]>('/api/vehicles/', {params: {type, page, limit}})
         .then(({data}) => dispatch(vehiclesLoaded(data)))
         .catch((err) => dispatch(vehiclesError(err.response.statusText)));
 }
@@ -50,9 +51,16 @@ const setVehiclesFilter = (type: IVehicleFilterType) => {
     }
 }
 
+const resetVehiclesState = () => {
+    return {
+        type: RESET_VEHICLES_STATE,
+    }
+}
+
 export {
     fetchVehicles,
     setVehiclesPage,
     setVehiclesFilter,
-    vehiclesRequested
+    vehiclesRequested,
+    resetVehiclesState
 };

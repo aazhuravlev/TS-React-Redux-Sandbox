@@ -6,7 +6,7 @@ import {
     SET_VEHICLES_PAGE
 } from "../constants";
 
-export interface IVehicles {
+export interface IVehicle {
     _id: string,
     id?: string,
     name: string,
@@ -15,7 +15,7 @@ export interface IVehicles {
     specifications_text: string,
     team_text: string,
     term_text: string,
-    rent: string,
+    rent: string | number,
     preview: string,
     image: string
 }
@@ -26,7 +26,7 @@ export interface IVehicleFilterType {
 }
 
 export interface IVehiclesState {
-    vehicles: IVehicles[];
+    vehicles: IVehicle[];
     loading: boolean;
     error: null | string;
     page: number;
@@ -40,7 +40,7 @@ interface IFetchVehicles {
 
 interface IFetchVehiclesSuccess {
     type: typeof FETCH_VEHICLES_SUCCESS,
-    payload: IVehicles[],
+    payload: IVehicle[],
 }
 
 interface IFetchVehiclesError {

@@ -18,13 +18,11 @@ declare global {
 window.lazyLoad = new LazyLoad();
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <Router>
-                <App />
-            </Router>
-        </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+        <Router>
+            <App />
+        </Router>
+    </Provider>,
     document.getElementById('root')
 );
 

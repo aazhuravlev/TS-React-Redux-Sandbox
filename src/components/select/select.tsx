@@ -25,7 +25,7 @@ const Select: FC<ISelectProps> =
 
     const List: FC = () => {
         const clickHandler = (item: ISpec): void => {
-            setIsOpen(!isOpen);
+            setIsOpen(false);
             onClick(item);
         }
         return (

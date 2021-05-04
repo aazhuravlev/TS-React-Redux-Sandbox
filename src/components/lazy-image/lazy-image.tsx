@@ -14,8 +14,8 @@ const LazyImage: FC<ILazyImageProps> =
          className = '',
          preview = '',
          src,
-         altPreview = '',
-         alt = ''
+         altPreview = 'Превью изображения',
+         alt = 'Изображение'
     }) => {
         useEffect(() => {
             window.lazyLoad.update();
