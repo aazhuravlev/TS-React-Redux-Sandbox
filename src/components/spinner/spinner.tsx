@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import styles from './spinner.module.css';
 import {IClassName} from "../../types/common";
 
@@ -6,7 +6,7 @@ interface ISpinnerProps extends IClassName {
     height?: number | string;
 }
 
-const Spinner: FC<ISpinnerProps> = ({height = '100%', className}) => (
+const Spinner: FC<ISpinnerProps> = memo(({height = '100%', className}) => (
     <section className={`${styles.Spinner} ${className}`}
              style={{height: height}}
     >
@@ -17,6 +17,6 @@ const Spinner: FC<ISpinnerProps> = ({height = '100%', className}) => (
             <div />
         </div>
     </section>
-)
+), () => true)
 
 export default Spinner;

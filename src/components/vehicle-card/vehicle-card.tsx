@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, memo} from "react";
 import styles from "./vehicle-card.module.css";
 import {Link} from "react-router-dom";
 import LazyImage from "../lazy-image/lazy-image";
@@ -12,7 +12,7 @@ interface IVehicleCardProps {
     rent: string | number;
 }
 
-const VehicleCard: FC<IVehicleCardProps> = ({id, preview, image, name, description, rent}) => (
+const VehicleCard: FC<IVehicleCardProps> = memo(({id, preview, image, name, description, rent}) => (
     <Link to={`/vehicles/${id}`} className={styles.VehicleCard}>
         <LazyImage
             className={styles.image}
@@ -30,6 +30,6 @@ const VehicleCard: FC<IVehicleCardProps> = ({id, preview, image, name, descripti
             </span>
         </div>
     </Link>
-)
+), () => true)
 
 export default VehicleCard;

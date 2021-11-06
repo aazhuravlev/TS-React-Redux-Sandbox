@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, memo} from "react";
 import {Link} from 'react-router-dom';
 import styles from "./items-list-header.module.css"
 import {IClassName} from "../../types/common";
@@ -29,7 +29,7 @@ const specs = [
     },
 ];
 
-const ItemsListHeader: FC<IClassName> = ({className}) => {
+const ItemsListHeader: FC<IClassName> = memo(({className}) => {
     const {type} = useTypedSelector(state => state.vehicles);
     const {setVehiclesFilter} = useActions();
 
@@ -49,6 +49,6 @@ const ItemsListHeader: FC<IClassName> = ({className}) => {
             </Link>
         </section>
     )
-};
+}, () => true);
 
 export default ItemsListHeader;
