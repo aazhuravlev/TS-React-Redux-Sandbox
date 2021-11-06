@@ -13,6 +13,7 @@
   font-weight: inherit;
   color: var(--main400);
   cursor: pointer;
+  user-select: none;
 }
 
 .select__btn:before {

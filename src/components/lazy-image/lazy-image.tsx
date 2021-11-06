@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from "react";
+import React, {FC, useEffect, memo} from "react";
 import styles from "./lazy-image.module.css";
 import {IClassName} from "../../types/common";
 
@@ -10,7 +10,7 @@ interface ILazyImageProps extends IClassName {
 }
 
 const LazyImage: FC<ILazyImageProps> =
-    ({
+    memo(({
          className = '',
          preview = '',
          src,
@@ -35,6 +35,6 @@ const LazyImage: FC<ILazyImageProps> =
                              alt={alt} />}
             </div>
         )
-    }
+    }, () => true)
 
 export default LazyImage;
