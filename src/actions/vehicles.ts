@@ -30,11 +30,14 @@ const vehiclesError = (error: string) => {
     };
 };
 
-const fetchVehicles = (type: string = '', page: number = 1, limit: number = 21) => (dispatch: Dispatch<VehiclesActionType>) => {
-    dispatch(vehiclesRequested());
-    axios.get<IVehicle[]>('/api/vehicles/', {params: {type, page, limit}})
-        .then(({data}) => dispatch(vehiclesLoaded(data)))
-        .catch((err) => dispatch(vehiclesError(err.response.statusText)));
+const fetchVehicles = (type: string = '', page: number = 1, limit: number = 21) => async (dispatch: Dispatch<VehiclesActionType>) => {
+    try {
+        dispatch(vehiclesRequested());
+        const { data } = await axios.get<IVehicle[]>('/api/vehicles/', {params: {type, page, limit}})
+        dispatch(vehiclesLoaded(data))
+    } catch (err) {
+        dispatch(vehiclesError(err.response.statusText));
+    }
 }
 
 const setVehiclesPage = (page: number) => {
