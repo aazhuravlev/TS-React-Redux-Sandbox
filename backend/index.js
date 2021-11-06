@@ -5,7 +5,7 @@ import fileUpload from 'express-fileupload';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import router from './router.js';
 
-const PORT = 3001;
+const PORT = 3333;
 const DB_URL = 'mongodb+srv://user:user@cluster0.bcskn.mongodb.net/Ts-React-Redux-Sandbox?retryWrites=true&w=majority';
 
 const app = express();
